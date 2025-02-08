@@ -1,0 +1,344 @@
+const challenges = {
+    web: {
+        easy: [
+            {
+                id: 'web_e1',
+                title: 'Inspector Gadget',
+                difficulty: 'easy',
+                points: 100,
+                description: "Something's hidden in the page source. Can you find it?",
+                objective: "Find the flag in the HTML source code.",
+                flag: 'flag{source_master}',
+                hints: ['Right-click and View Page Source', 'Look for HTML comments'],
+                solution: ['View the page source', 'Find the HTML comment <!-- flag{source_master} -->']
+            },
+            {
+                id: 'web_e2',
+                title: 'Cookie Monster',
+                difficulty: 'easy',
+                points: 100,
+                description: "There's a secret cookie on this page.",
+                objective: "Find and decode the cookie value.",
+                flag: 'flag{cookie_hunter}',
+                hints: ['Check browser developer tools', 'Look in the Storage/Cookies tab'],
+                solution: ['Open DevTools', 'Go to Storage/Cookies', 'Find and decode the cookie']
+            }
+            // Add more easy web challenges here
+        ],
+        medium: [
+            {
+                id: 'web_m1',
+                title: 'SQL Injection 101',
+                difficulty: 'medium',
+                points: 200,
+                description: "Login to the admin account without knowing the password.",
+                objective: "Exploit basic SQL injection vulnerability.",
+                flag: 'flag{sql_master}',
+                hints: ['Try using single quotes in the input', "What happens if you add OR '1'='1'?"],
+                solution: ["Enter admin' OR '1'='1", 'The query becomes true for all rows', 'Access granted']
+            },
+            {
+                id: 'web_m2',
+                title: 'XSS Training',
+                difficulty: 'medium',
+                points: 200,
+                description: "Execute JavaScript in the comment section.",
+                objective: "Demonstrate basic XSS vulnerability.",
+                flag: 'flag{xss_alert}',
+                hints: ['Try adding HTML tags', 'What about script tags?'],
+                solution: ['Insert <script>alert("XSS")</script>', 'JavaScript executes']
+            }
+            // Add more medium web challenges here
+        ],
+        hard: [
+            {
+                id: 'web_h1',
+                title: 'JWT Breaker',
+                difficulty: 'hard',
+                points: 300,
+                description: "The JWT token is weak. Can you forge an admin token?",
+                objective: "Exploit JWT vulnerability to gain admin access.",
+                flag: 'flag{jwt_cracked}',
+                hints: ['Check the JWT algorithm', 'What if algorithm is "none"?'],
+                solution: ['Decode JWT', 'Change algorithm to none', 'Remove signature', 'Create admin token']
+            },
+            {
+                id: 'web_h2',
+                title: 'SSRF Safari',
+                difficulty: 'hard',
+                points: 300,
+                description: "The image loader accepts URLs. Can you access internal services?",
+                objective: "Exploit SSRF vulnerability to access localhost.",
+                flag: 'flag{ssrf_master}',
+                hints: ['Try accessing localhost', 'What internal ports are open?'],
+                solution: ['Try localhost URLs', 'Scan internal ports', 'Access internal service']
+            }
+            // Add more hard web challenges here
+        ]
+    },
+    forensics: {
+        easy: [
+            {
+                id: 'forensics_e1',
+                title: 'Hidden Text',
+                difficulty: 'easy',
+                points: 100,
+                description: "This text file has more than meets the eye.",
+                objective: "Find hidden text using basic tools.",
+                flag: 'flag{strings_found}',
+                hints: ['Try the strings command', 'Look for unusual patterns'],
+                solution: ['Use strings command', 'Find hidden flag in output']
+            }
+            // Add more easy forensics challenges here
+        ],
+        medium: [
+            {
+                id: 'forensics_m1',
+                title: 'Memory Dump',
+                difficulty: 'medium',
+                points: 200,
+                description: "Analyze this memory dump to find user activity.",
+                objective: "Use memory forensics tools to find evidence.",
+                flag: 'flag{volatility_master}',
+                hints: ['Find key length first', 'Use frequency analysis'],
+                solution: ['Calculate key length', 'Perform analysis', 'Decrypt message']
+            }
+            // Add more medium forensics challenges here
+        ],
+        hard: [
+            {
+                id: 'forensics_h1',
+                title: 'Disk Recovery',
+                difficulty: 'hard',
+                points: 300,
+                description: "Recover deleted files from this disk image.",
+                objective: "Use advanced forensics tools for file recovery.",
+                flag: 'flag{recovery_expert}',
+                hints: ['Try file carving tools', 'Look for file signatures'],
+                solution: ['Use file carving', 'Recover deleted files', 'Find flag in recovered data']
+            }
+            // Add more hard forensics challenges here
+        ]
+    },
+    osint: {
+        easy: [
+            {
+                id: 'osint_e1',
+                title: 'Social Sleuth',
+                difficulty: 'easy',
+                points: 100,
+                description: "Find information about this username across social media.",
+                objective: "Use basic OSINT techniques for social media.",
+                flag: 'flag{social_finder}',
+                hints: ['Try different social platforms', 'Look for common usernames'],
+                solution: ['Search username', 'Find social profiles', 'Collect information']
+            }
+            // Add more easy OSINT challenges here
+        ],
+        medium: [
+            {
+                id: 'osint_m1',
+                title: 'Domain Hunter',
+                difficulty: 'medium',
+                points: 200,
+                description: "Track down all subdomains of this company.",
+                objective: "Use subdomain enumeration techniques.",
+                flag: 'flag{subdomain_master}',
+                hints: ['Try subdomain tools', 'Check DNS records'],
+                solution: ['Use subdomain scanner', 'Analyze DNS', 'Map all subdomains']
+            }
+            // Add more medium OSINT challenges here
+        ],
+        hard: [
+            {
+                id: 'osint_h1',
+                title: 'Corporate Recon',
+                difficulty: 'hard',
+                points: 300,
+                description: "Map the entire digital infrastructure of this company.",
+                objective: "Perform advanced corporate reconnaissance.",
+                flag: 'flag{recon_expert}',
+                hints: ['Look for all digital assets', 'Map infrastructure'],
+                solution: ['Use multiple tools', 'Create asset map', 'Document findings']
+            }
+            // Add more hard OSINT challenges here
+        ]
+    },
+    crypto: {
+        easy: [
+            {
+                id: 'crypto_e1',
+                title: 'Caesar Shift',
+                difficulty: 'easy',
+                points: 100,
+                description: "Decrypt this classical cipher: Uryyb, jbeyq!",
+                objective: "Use Caesar cipher decryption.",
+                flag: 'flag{caesar_solved}',
+                hints: ['Try different shift values', 'Look for readable text'],
+                solution: ['Try ROT13', 'Shift letters', 'Find readable message']
+            }
+            // Add more easy crypto challenges here
+        ],
+        medium: [
+            {
+                id: 'crypto_m1',
+                title: 'Vigenère Variation',
+                difficulty: 'medium',
+                points: 200,
+                description: "Break this Vigenère cipher with a twist.",
+                objective: "Use frequency analysis for Vigenère.",
+                flag: 'flag{vigenere_master}',
+                hints: ['Find key length first', 'Use frequency analysis'],
+                solution: ['Calculate key length', 'Perform analysis', 'Decrypt message']
+            }
+            // Add more medium crypto challenges here
+        ],
+        hard: [
+            {
+                id: 'crypto_h1',
+                title: 'RSA Rookie',
+                difficulty: 'hard',
+                points: 300,
+                description: "Break this weak RSA implementation.",
+                objective: "Exploit common RSA vulnerabilities.",
+                flag: 'flag{rsa_cracked}',
+                hints: ['Check prime factors', 'Look for small exponents'],
+                solution: ['Factor N', 'Calculate d', 'Decrypt message']
+            }
+            // Add more hard crypto challenges here
+        ]
+    },
+    steganography: {
+        easy: [
+            {
+                id: 'stego_e1',
+                title: 'Hidden Pixels',
+                difficulty: 'easy',
+                points: 100,
+                description: "This image contains hidden data in its pixels.",
+                objective: "Extract data from image pixels.",
+                flag: 'flag{pixel_hunter}',
+                hints: ['Check RGB values', 'Look for patterns'],
+                solution: ['Analyze pixels', 'Extract hidden data', 'Decode message']
+            }
+            // Add more easy steganography challenges here
+        ],
+        medium: [
+            {
+                id: 'stego_m1',
+                title: 'Audio Secrets',
+                difficulty: 'medium',
+                points: 200,
+                description: "There's a message hidden in this audio file.",
+                objective: "Use audio steganography tools.",
+                flag: 'flag{audio_master}',
+                hints: ['Check spectrogram', 'Listen for patterns'],
+                solution: ['View spectrogram', 'Find hidden pattern', 'Decode message']
+            }
+            // Add more medium steganography challenges here
+        ],
+        hard: [
+            {
+                id: 'stego_h1',
+                title: 'Deep Cover',
+                difficulty: 'hard',
+                points: 300,
+                description: "Multiple layers of steganography hide this flag.",
+                objective: "Use advanced stego techniques.",
+                flag: 'flag{stego_expert}',
+                hints: ['Multiple tools needed', 'Look for nested data'],
+                solution: ['Extract first layer', 'Find nested data', 'Decode all layers']
+            }
+            // Add more hard steganography challenges here
+        ]
+    },
+    linux: {
+        easy: [
+            {
+                id: 'linux_e1',
+                title: 'Permission Puzzle',
+                difficulty: 'easy',
+                points: 100,
+                description: "Fix the permissions to read this file.",
+                objective: "Use basic chmod commands.",
+                flag: 'flag{chmod_master}',
+                hints: ['Check current permissions', 'Use chmod command'],
+                solution: ['View permissions', 'Use chmod', 'Read file']
+            }
+            // Add more easy Linux challenges here
+        ],
+        medium: [
+            {
+                id: 'linux_m1',
+                title: 'Process Prison',
+                difficulty: 'medium',
+                points: 200,
+                description: "Find and analyze suspicious processes.",
+                objective: "Use process analysis commands.",
+                flag: 'flag{process_hunter}',
+                hints: ['Use ps and top', 'Look for unusual activity'],
+                solution: ['List processes', 'Find suspicious one', 'Analyze behavior']
+            }
+            // Add more medium Linux challenges here
+        ],
+        hard: [
+            {
+                id: 'linux_h1',
+                title: 'Kernel Chaos',
+                difficulty: 'hard',
+                points: 300,
+                description: "Exploit this kernel vulnerability.",
+                objective: "Use advanced exploitation techniques.",
+                flag: 'flag{kernel_master}',
+                hints: ['Check kernel version', 'Look for CVEs'],
+                solution: ['Identify vulnerability', 'Create exploit', 'Get root access']
+            }
+            // Add more hard Linux challenges here
+        ]
+    }
+};
+
+function loadChallenges() {
+    const categories = ['web', 'forensics', 'osint', 'crypto', 'steganography', 'linux'];
+    const difficulties = ['easy', 'medium', 'hard'];
+    
+    categories.forEach(category => {
+        difficulties.forEach(difficulty => {
+            const container = document.querySelector(`#${category}-${difficulty}`);
+            if (container && challenges[category] && challenges[category][difficulty]) {
+                challenges[category][difficulty].forEach(challenge => {
+                    const card = createChallengeCard(challenge);
+                    container.appendChild(card);
+                });
+            }
+        });
+    });
+}
+
+function createChallengeCard(challenge) {
+    const card = document.createElement('div');
+    card.className = 'col-md-4';
+    card.innerHTML = `
+        <div class="challenge-card">
+            <span class="difficulty ${challenge.difficulty}">${challenge.difficulty}</span>
+            <span class="points-badge"><i class="fas fa-star"></i>${challenge.points}</span>
+            <h3>${challenge.title}</h3>
+            <p>${challenge.description}</p>
+            <div class="challenge-footer">
+                <button class="btn-hint" onclick="showHint('${challenge.id}')">
+                    <i class="fas fa-lightbulb"></i> Hint
+                </button>
+                <div class="flag-input">
+                    <input type="text" placeholder="Enter flag" id="flag-${challenge.id}">
+                    <button class="btn-submit" onclick="checkFlag('${challenge.id}')">
+                        <i class="fas fa-flag"></i> Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    return card;
+}
+
+// Load challenges when the page is ready
+document.addEventListener('DOMContentLoaded', loadChallenges);

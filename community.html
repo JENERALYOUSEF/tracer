@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Tracers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><span class="tracers-logo">TRACERS</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learn.html">Learn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ctf.html">CTF Challenges</a></li>
+                    <li class="nav-item"><a class="nav-link" href="videos.html">Videos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Community Forum</h1>
+            <p class="lead">Connect, share, and learn with fellow cybersecurity enthusiasts</p>
+        </div>
+    </div>
+
+    <section class="community-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="categories-sidebar">
+                        <h3>Categories</h3>
+                        <ul class="category-list">
+                            <li class="active"><a href="#"><i class="fas fa-globe"></i> General Discussion</a></li>
+                            <li><a href="#"><i class="fas fa-graduation-cap"></i> Learning Resources</a></li>
+                            <li><a href="#"><i class="fas fa-flag"></i> CTF Discussion</a></li>
+                            <li><a href="#"><i class="fas fa-tools"></i> Tools & Techniques</a></li>
+                            <li><a href="#"><i class="fas fa-newspaper"></i> News & Updates</a></li>
+                        </ul>
+
+                        <div class="online-users mt-4">
+                            <h3>Online Users</h3>
+                            <div class="user-list">
+                                <div class="user-item">
+                                    <span class="status-dot online"></span>
+                                    <span class="username">CyberMaster</span>
+                                </div>
+                                <div class="user-item">
+                                    <span class="status-dot online"></span>
+                                    <span class="username">H4ck3r</span>
+                                </div>
+                                <div class="user-item">
+                                    <span class="status-dot away"></span>
+                                    <span class="username">SecurityPro</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="forum-controls mb-4">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newPostModal">
+                            <i class="fas fa-plus"></i> New Post
+                        </button>
+                        <div class="search-box">
+                            <input type="text" class="form-control" placeholder="Search discussions...">
+                        </div>
+                    </div>
+
+                    <div class="forum-posts">
+                        <!-- Example Post 1 -->
+                        <div class="forum-post">
+                            <div class="post-header">
+                                <div class="user-info">
+                                    <img src="https://via.placeholder.com/40" alt="User avatar" class="avatar">
+                                    <div class="user-details">
+                                        <h4>CyberMaster</h4>
+                                        <span class="post-meta">Posted 2 hours ago in General Discussion</span>
+                                    </div>
+                                </div>
+                                <div class="post-stats">
+                                    <span><i class="fas fa-comments"></i> 15</span>
+                                    <span><i class="fas fa-eye"></i> 234</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <h3>Best practices for securing a home network?</h3>
+                                <p>I'm looking for recommendations on securing my home network. What are some essential steps and tools I should consider?</p>
+                            </div>
+                            <div class="post-footer">
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-reply"></i> Reply</button>
+                                <button class="btn btn-sm btn-outline-secondary"><i class="fas fa-bookmark"></i> Save</button>
+                            </div>
+                        </div>
+
+                        <!-- Example Post 2 -->
+                        <div class="forum-post">
+                            <div class="post-header">
+                                <div class="user-info">
+                                    <img src="https://via.placeholder.com/40" alt="User avatar" class="avatar">
+                                    <div class="user-details">
+                                        <h4>SecurityPro</h4>
+                                        <span class="post-meta">Posted 5 hours ago in CTF Discussion</span>
+                                    </div>
+                                </div>
+                                <div class="post-stats">
+                                    <span><i class="fas fa-comments"></i> 8</span>
+                                    <span><i class="fas fa-eye"></i> 156</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <h3>Tips for solving cryptography challenges</h3>
+                                <p>Here are some useful resources and techniques I've found helpful when solving cryptography-based CTF challenges...</p>
+                            </div>
+                            <div class="post-footer">
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-reply"></i> Reply</button>
+                                <button class="btn btn-sm btn-outline-secondary"><i class="fas fa-bookmark"></i> Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <nav class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Post Modal -->
+    <div class="modal fade" id="newPostModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Category</label>
+                            <select class="form-select">
+                                <option>General Discussion</option>
+                                <option>Learning Resources</option>
+                                <option>CTF Discussion</option>
+                                <option>Tools & Techniques</option>
+                                <option>News & Updates</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-control" placeholder="Enter post title">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Content</label>
+                            <textarea class="form-control" rows="5" placeholder="Write your post content..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Create Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Tracers</h3>
+                    <p>Empowering cybersecurity education</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSkids - Security Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyber-theme">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt"></i> CyberSkids
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tools.html">Tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learn.html">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ctf.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="FOURM.html">Forum</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+        <!-- Tool Categories -->
+        <div class="tool-categories">
+            <ul class="nav nav-pills mb-4 justify-content-center" id="toolTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#networkTools">
+                        <i class="fas fa-network-wired"></i> Network
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#osintTools">
+                        <i class="fas fa-search"></i> OSINT
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#webTools">
+                        <i class="fas fa-globe"></i> Web Security
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#phishingTools">
+                        <i class="fas fa-fish"></i> Anti-Phishing
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#dataLeaks">
+                        <i class="fas fa-user-shield"></i> Data Protection
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tool Content -->
+            <div class="tab-content" id="toolTabsContent">
+                <!-- Network Tools -->
+                <div class="tab-pane fade show active" id="networkTools">
+                    <div class="row g-4">
+                        <!-- IP Detective -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-network-wired"></i> IP Detective</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Investigate IP addresses to discover their geographic location, hosting provider, and potential security risks.
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="ipAddress" placeholder="Enter IP address">
+                                        <button class="btn btn-primary" type="button" id="checkIP">
+                                            <i class="fas fa-search"></i> Analyze
+                                        </button>
+                                    </div>
+                                    <div class="results-area" id="ipResults" style="display: none;">
+                                        <h4 class="mb-3">Results</h4>
+                                        <ul class="list-unstyled" id="ipResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Port Scanner -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-plug"></i> Port Scanner</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Scan and identify open ports on a target system to understand potential vulnerabilities.
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="hostAddress" placeholder="Enter host (IP or domain)">
+                                        <button class="btn btn-primary" type="button" id="scanPorts">
+                                            <i class="fas fa-search"></i> Scan
+                                        </button>
+                                    </div>
+                                    <div class="results-area" id="portResults" style="display: none;">
+                                        <h4 class="mb-3">Open Ports</h4>
+                                        <ul class="list-unstyled" id="portResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OSINT Tools -->
+                <div class="tab-pane fade" id="osintTools">
+                    <div class="row g-4">
+                        <!-- Email OSINT -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-envelope-open-text"></i> Email OSINT</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Gather publicly available information about email addresses to assess potential risks.
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="email" class="form-control" id="emailOsint" placeholder="Enter email address">
+                                        <button class="btn btn-primary" type="button" id="investigateEmail">
+                                            <i class="fas fa-search"></i> Investigate
+                                        </button>
+                                    </div>
+                                    <div class="results-area" id="emailResults" style="display: none;">
+                                        <h4 class="mb-3">Findings</h4>
+                                        <ul class="list-unstyled" id="emailResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Username Tracker -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-user-secret"></i> Username Tracker</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Track username presence across social platforms to analyze digital footprint.
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="usernameTracker" placeholder="Enter username">
+                                        <button class="btn btn-primary" type="button" id="trackUsername">
+                                            <i class="fas fa-search"></i> Track
+                                        </button>
+                                    </div>
+                                    <div class="results-area" id="usernameResults" style="display: none;">
+                                        <h4 class="mb-3">Platform Presence</h4>
+                                        <ul class="list-unstyled" id="usernameResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Security Tools -->
+                <div class="tab-pane fade" id="webTools">
+                    <div class="row g-4">
+                        <!-- SSL Checker -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-lock"></i> SSL Checker</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Analyze SSL/TLS certificates to ensure secure connections and identify potential vulnerabilities.
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="sslDomain" placeholder="Enter domain">
+                                        <button class="btn btn-primary" type="button" id="checkSSL">
+                                            <i class="fas fa-search"></i> Check
+                                        </button>
+                                    </div>
+                                    <div class="results-area" id="sslResults" style="display: none;">
+                                        <h4 class="mb-3">Certificate Details</h4>
+                                        <ul class="list-unstyled" id="sslResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Headers Analyzer -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-code"></i> Headers Analyzer</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Check security headers to identify missing protections and potential vulnerabilities.
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="headersDomain" placeholder="Enter domain">
+                                        <button class="btn btn-primary" type="button" id="analyzeHeaders">
+                                            <i class="fas fa-search"></i> Analyze
+                                        </button>
+                                    </div>
+                                    <div class="results-area" id="headersResults" style="display: none;">
+                                        <h4 class="mb-3">Security Headers</h4>
+                                        <ul class="list-unstyled" id="headersResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Web Security Scanner -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-shield-alt"></i> Web Security Scanner</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Scan web applications for common security vulnerabilities including XSS, SQL injection, and more.
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <input type="text" class="form-control" id="scannerUrl" placeholder="Enter target URL">
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="xssCheck" checked>
+                                        <label class="form-check-label" for="xssCheck">XSS Detection</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="sqlCheck" checked>
+                                        <label class="form-check-label" for="sqlCheck">SQL Injection</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="rceCheck" checked>
+                                        <label class="form-check-label" for="rceCheck">RCE Detection</label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="uploadCheck" checked>
+                                        <label class="form-check-label" for="uploadCheck">File Upload Tests</label>
+                                    </div>
+                                    <button class="btn btn-primary w-100" id="startScan">
+                                        <i class="fas fa-search"></i> Start Scan
+                                    </button>
+                                    <div class="progress mt-3" style="display: none;" id="scanProgress">
+                                        <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <div class="results-area mt-3" id="scanResults" style="display: none;">
+                                        <h4>Scan Results</h4>
+                                        <div id="vulnerabilityList"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anti-Phishing Tools -->
+                <div class="tab-pane fade" id="phishingTools">
+                    <div class="row g-4">
+                        <!-- URL Scanner -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-link"></i> URL Scanner</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Analyze URLs for potential phishing attempts and malicious content.
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="suspiciousUrl" placeholder="Enter URL">
+                                        <button class="btn btn-primary" type="button" id="scanURL">
+                                            <i class="fas fa-search"></i> Scan
+                                        </button>
+                                    </div>
+                                    <div class="results-area" id="urlResults" style="display: none;">
+                                        <h4 class="mb-3">Scan Results</h4>
+                                        <ul class="list-unstyled" id="urlResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email Header Analyzer -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-envelope"></i> Email Header Analyzer</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Analyze email headers to detect phishing attempts and verify authenticity.
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <textarea class="form-control" id="emailHeaders" rows="4" placeholder="Paste email headers here"></textarea>
+                                    </div>
+                                    <button class="btn btn-primary w-100" type="button" id="analyzeHeaders">
+                                        <i class="fas fa-search"></i> Analyze Headers
+                                    </button>
+                                    <div class="results-area" id="headerResults" style="display: none;">
+                                        <h4 class="mb-3">Analysis Results</h4>
+                                        <ul class="list-unstyled" id="headerResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Protection Tools -->
+                <div class="tab-pane fade" id="dataLeaks">
+                    <div class="row g-4">
+                        <!-- Password Leak Checker -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-key"></i> Password Leak Checker</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Check if your password has been exposed in known data breaches.
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="password" class="form-control" id="passwordCheck" placeholder="Enter password">
+                                        <button class="btn btn-primary" type="button" id="checkPassword">
+                                            <i class="fas fa-search"></i> Check
+                                        </button>
+                                    </div>
+                                    <div class="results-area" id="passwordResults" style="display: none;">
+                                        <h4 class="mb-3">Leak Status</h4>
+                                        <ul class="list-unstyled" id="passwordResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Breach Scanner -->
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-shield-alt"></i> Data Breach Scanner</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tool-description">
+                                        Check if your email has been involved in known data breaches.
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="email" class="form-control" id="breachEmail" placeholder="Enter email">
+                                        <button class="btn btn-primary" type="button" id="checkBreaches">
+                                            <i class="fas fa-search"></i> Scan
+                                        </button>
+                                    </div>
+                                    <div class="results-area" id="breachResults" style="display: none;">
+                                        <h4 class="mb-3">Breach History</h4>
+                                        <ul class="list-unstyled" id="breachResultsList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tool Statistics -->
+        <div class="tool-statistics mt-5">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Total Scans</h4>
+                        <p class="stat-number">1,234</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="fas fa-bug"></i>
+                        <h4>Threats Detected</h4>
+                        <p class="stat-number">567</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Users Protected</h4>
+                        <p class="stat-number">890</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Response Time</h4>
+                        <p class="stat-number">1.2s</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>About CyberSkids</h5>
+                    <p>Empowering the next generation of cybersecurity experts with educational tools and resources.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-github"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+    <script src="detective-tools.js"></script>
+    <script src="security-tools.js"></script>
+    <script src="web-scanner.js"></script>
+</body>
+</html>

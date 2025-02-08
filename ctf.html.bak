@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Challenges - Tracers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ctf-page">
+    <div class="background-wrapper">
+        <img src="images/pirates-ship-hacking-wallpaper-fore-website.png" alt="Pirate Ship Hacking Scene" class="background-image">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><span class="tracers-logo">TRACERS</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learn.html">Learn</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ctf.html">CTF Challenges</a></li>
+                    <li class="nav-item"><a class="nav-link" href="videos.html">Videos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CTF Categories Section -->
+    <section class="ctf-categories-section">
+        <div class="container">
+            <h1 class="section-title text-center mb-5">Choose Your Challenge</h1>
+            
+            <!-- Category Tabs -->
+            <ul class="nav nav-tabs cyber-tabs" id="ctfTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#web" type="button">
+                        <i class="fas fa-globe"></i> Web
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#forensics" type="button">
+                        <i class="fas fa-search"></i> Forensics
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#osint" type="button">
+                        <i class="fas fa-eye"></i> OSINT
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#crypto" type="button">
+                        <i class="fas fa-lock"></i> Crypto
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#steganography" type="button">
+                        <i class="fas fa-image"></i> Steganography
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#linux" type="button">
+                        <i class="fas fa-terminal"></i> Linux
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Challenge Cards -->
+            <div class="tab-content mt-4" id="ctfTabContent">
+                <!-- Web Challenges -->
+                <div class="tab-pane fade show active" id="web">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3>Hidden Treasure</h3>
+                                    <span class="difficulty beginner">Beginner</span>
+                                </div>
+                                <p class="challenge-description">
+                                    Captain's log mentions a secret page on his website. Can you find the hidden treasure?
+                                </p>
+                                <div class="challenge-details">
+                                    <p><strong>Objective:</strong> Find the flag hidden in the website's source code.</p>
+                                    <div class="flag-submission">
+                                        <input type="text" class="flag-input" placeholder="Enter flag: flag{...}" data-flag="flag{hidden_treasure_found}">
+                                        <button class="btn btn-submit" onclick="checkFlag(this)">
+                                            <i class="fas fa-flag"></i> Submit Flag
+                                        </button>
+                                    </div>
+                                    <button class="btn btn-hint" onclick="showHint('web1')">
+                                        <i class="fas fa-lightbulb"></i> Need a Hint?
+                                    </button>
+                                    <div class="hint-content" id="web1-hint">
+                                        <p>1. Right-click and view the page source</p>
+                                        <p>2. Look for comments in the HTML</p>
+                                    </div>
+                                    <button class="btn btn-solution" onclick="showSolution('web1')">
+                                        <i class="fas fa-key"></i> Show Solution
+                                    </button>
+                                    <div class="solution-content" id="web1-solution">
+                                        <p>1. View the page source (Ctrl+U)</p>
+                                        <p>2. Find the HTML comment: <!-- flag{hidden_treasure_found} --></p>
+                                        <p>3. The flag is: flag{hidden_treasure_found}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3>Cookie Monster</h3>
+                                    <span class="difficulty beginner">Beginner</span>
+                                </div>
+                                <p class="challenge-description">
+                                    The ship's cook left some cookies behind. Can you find the special one?
+                                </p>
+                                <div class="challenge-details">
+                                    <p><strong>Objective:</strong> Find the flag stored in the browser cookies.</p>
+                                    <button class="btn btn-hint" onclick="showHint('web2')">
+                                        <i class="fas fa-lightbulb"></i> Need a Hint?
+                                    </button>
+                                    <div class="hint-content" id="web2-hint">
+                                        <p>1. Check your browser's developer tools</p>
+                                        <p>2. Look in the Storage or Application tab</p>
+                                    </div>
+                                    <button class="btn btn-solution" onclick="showSolution('web2')">
+                                        <i class="fas fa-key"></i> Show Solution
+                                    </button>
+                                    <div class="solution-content" id="web2-solution">
+                                        <p>1. Open Developer Tools (F12)</p>
+                                        <p>2. Go to Application > Cookies</p>
+                                        <p>3. Find cookie named 'secret_recipe'</p>
+                                        <p>4. The flag is: flag{tasty_cookie_found}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forensics Challenges -->
+                <div class="tab-pane fade" id="forensics">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3>Hidden Message</h3>
+                                    <span class="difficulty beginner">Beginner</span>
+                                </div>
+                                <p class="challenge-description">
+                                    A mysterious image was found in the captain's quarters. What secrets does it hold?
+                                </p>
+                                <div class="challenge-details">
+                                    <p><strong>Objective:</strong> Extract the hidden message from the image.</p>
+                                    <button class="btn btn-hint" onclick="showHint('forensics1')">
+                                        <i class="fas fa-lightbulb"></i> Need a Hint?
+                                    </button>
+                                    <div class="hint-content" id="forensics1-hint">
+                                        <p>1. Try using "strings" command</p>
+                                        <p>2. Look for text patterns in the binary data</p>
+                                    </div>
+                                    <button class="btn btn-solution" onclick="showSolution('forensics1')">
+                                        <i class="fas fa-key"></i> Show Solution
+                                    </button>
+                                    <div class="solution-content" id="forensics1-solution">
+                                        <p>1. Run: strings mysterious_image.jpg</p>
+                                        <p>2. Look for text that starts with "flag{"</p>
+                                        <p>3. The flag is: flag{image_investigation_complete}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OSINT Challenges -->
+                <div class="tab-pane fade" id="osint">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3>Digital Footprints</h3>
+                                    <span class="difficulty beginner">Beginner</span>
+                                </div>
+                                <p class="challenge-description">
+                                    Track down the captain's social media presence using only their username: @CyberCaptain.
+                                </p>
+                                <div class="challenge-details">
+                                    <p><strong>Objective:</strong> Find information about the captain across different platforms.</p>
+                                    <button class="btn btn-hint" onclick="showHint('osint1')">
+                                        <i class="fas fa-lightbulb"></i> Need a Hint?
+                                    </button>
+                                    <div class="hint-content" id="osint1-hint">
+                                        <p>1. Try popular social media platforms</p>
+                                        <p>2. Use username search tools</p>
+                                    </div>
+                                    <button class="btn btn-solution" onclick="showSolution('osint1')">
+                                        <i class="fas fa-key"></i> Show Solution
+                                    </button>
+                                    <div class="solution-content" id="osint1-solution">
+                                        <p>1. Use namechk.com to search for the username</p>
+                                        <p>2. Find the captain's GitHub page</p>
+                                        <p>3. The flag is in their bio: flag{social_detective}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crypto Challenges -->
+                <div class="tab-pane fade" id="crypto">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3>Caesar's Secret</h3>
+                                    <span class="difficulty beginner">Beginner</span>
+                                </div>
+                                <p class="challenge-description">
+                                    Decrypt this message: "synt{pnrfne_pvcure_fbyirq}"
+                                </p>
+                                <div class="challenge-details">
+                                    <p><strong>Objective:</strong> Decrypt the Caesar cipher message.</p>
+                                    <button class="btn btn-hint" onclick="showHint('crypto1')">
+                                        <i class="fas fa-lightbulb"></i> Need a Hint?
+                                    </button>
+                                    <div class="hint-content" id="crypto1-hint">
+                                        <p>1. This is a ROT13 variant</p>
+                                        <p>2. Try different shift values</p>
+                                    </div>
+                                    <button class="btn btn-solution" onclick="showSolution('crypto1')">
+                                        <i class="fas fa-key"></i> Show Solution
+                                    </button>
+                                    <div class="solution-content" id="crypto1-solution">
+                                        <p>1. Use ROT13 decoder</p>
+                                        <p>2. Shift each letter by 13 positions</p>
+                                        <p>3. The flag is: flag{caesar_cipher_solved}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Steganography Challenges -->
+                <div class="tab-pane fade" id="steganography">
+                    <div class="row g-4">
+                        <!-- Challenges will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Linux Challenges -->
+                <div class="tab-pane fade" id="linux">
+                    <div class="row g-4">
+                        <!-- Challenges will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Celebration Modal -->
+    <div class="modal" id="celebrationModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="celebration-content">
+                        <div class="trophy-icon">🏆</div>
+                        <h2>Congratulations!</h2>
+                        <p>You've successfully solved the challenge!</p>
+                        <div class="celebration-emojis">
+                            <span>🎉</span>
+                            <span>🚀</span>
+                            <span>⭐</span>
+                            <span>🎯</span>
+                            <span>💫</span>
+                        </div>
+                        <div class="points-earned">
+                            <span class="points-label">Points Earned</span>
+                            <span class="points-value">+100</span>
+                        </div>
+                        <button class="btn btn-next-challenge" onclick="$('#celebrationModal').modal('hide')">
+                            Next Challenge <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function showHint(challengeId) {
+            const hintElement = document.getElementById(`${challengeId}-hint`);
+            hintElement.style.display = hintElement.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function showSolution(challengeId) {
+            const solutionElement = document.getElementById(`${challengeId}-solution`);
+            solutionElement.style.display = solutionElement.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function checkFlag(button) {
+            const input = button.parentElement.querySelector('.flag-input');
+            const correctFlag = input.dataset.flag;
+            const userFlag = input.value.trim();
+
+            if (userFlag === correctFlag) {
+                showCelebration();
+                input.disabled = true;
+                button.disabled = true;
+                button.innerHTML = '<i class="fas fa-check"></i> Solved!';
+                button.classList.add('solved');
+            } else {
+                input.classList.add('incorrect');
+                setTimeout(() => input.classList.remove('incorrect'), 1000);
+            }
+        }
+
+        function showCelebration() {
+            const modal = new bootstrap.Modal(document.getElementById('celebrationModal'));
+            modal.show();
+            
+            // Add confetti effect
+            const duration = 3 * 1000;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                // Launch confetti from the left and right edges
+                confetti({
+                    particleCount: 7,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 }
+                });
+                confetti({
+                    particleCount: 7,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 }
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</body>
+</html>

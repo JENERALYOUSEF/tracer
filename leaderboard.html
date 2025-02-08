@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Leaderboard - Tracers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="leaderboard-page">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><span class="tracers-logo">TRACERS</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learn.html">Learn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ctf.html">CTF Challenges</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="leaderboard.html">Leaderboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="videos.html">Videos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Leaderboard Header -->
+    <section class="leaderboard-header">
+        <div class="container text-center">
+            <h1><i class="fas fa-trophy"></i> Global Leaderboard</h1>
+            <p>Top CTF Players Worldwide</p>
+        </div>
+    </section>
+
+    <!-- Top Players -->
+    <section class="top-players-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Second Place -->
+                <div class="col-md-3">
+                    <div class="player-card second-place">
+                        <div class="rank-badge">2</div>
+                        <div class="player-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3 id="second-place-name">Loading...</h3>
+                        <div class="player-points" id="second-place-points">0 pts</div>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <i class="fas fa-flag"></i>
+                                <span id="second-place-solved">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- First Place -->
+                <div class="col-md-4">
+                    <div class="player-card first-place">
+                        <div class="rank-badge">1</div>
+                        <div class="player-avatar">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 id="first-place-name">Loading...</h3>
+                        <div class="player-points" id="first-place-points">0 pts</div>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <i class="fas fa-flag"></i>
+                                <span id="first-place-solved">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Place -->
+                <div class="col-md-3">
+                    <div class="player-card third-place">
+                        <div class="rank-badge">3</div>
+                        <div class="player-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3 id="third-place-name">Loading...</h3>
+                        <div class="player-points" id="third-place-points">0 pts</div>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <i class="fas fa-flag"></i>
+                                <span id="third-place-solved">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Leaderboard -->
+    <section class="full-leaderboard-section">
+        <div class="container">
+            <div class="leaderboard-card cyber-card">
+                <div class="leaderboard-filters mb-4">
+                    <div class="btn-group">
+                        <button class="btn btn-cyber active" data-filter="all">All Time</button>
+                        <button class="btn btn-cyber" data-filter="month">This Month</button>
+                        <button class="btn btn-cyber" data-filter="week">This Week</button>
+                    </div>
+                    <div class="category-filter">
+                        <select class="form-select cyber-select" id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="web">Web</option>
+                            <option value="forensics">Forensics</option>
+                            <option value="crypto">Crypto</option>
+                            <option value="osint">OSINT</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Player</th>
+                                <th>Points</th>
+                                <th>Challenges</th>
+                                <th>Achievements</th>
+                                <th>Last Active</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-table">
+                            <!-- Leaderboard entries will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="leaderboard.js"></script>
+</body>
+</html>

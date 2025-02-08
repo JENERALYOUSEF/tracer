@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Videos - Tracers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><span class="tracers-logo">TRACERS</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ctf.html">CTF</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learn.html">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="videos.html">Videos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tools.html">Tools</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light" id="loginBtn">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Learning Videos</h1>
+            <p class="lead">Watch, learn, and master cybersecurity concepts</p>
+        </div>
+    </div>
+
+    <section class="video-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="video-player-container">
+                        <div class="video-player">
+                            <video id="main-video" controls>
+                                <source src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="video-controls">
+                            <div class="timeline">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar"></div>
+                                </div>
+                                <div class="markers">
+                                    <!-- Markers will be added here -->
+                                </div>
+                            </div>
+                            <div class="control-buttons">
+                                <button class="btn btn-sm btn-primary" onclick="addMarker()">
+                                    <i class="fas fa-bookmark"></i> Add Marker
+                                </button>
+                                <button class="btn btn-sm btn-secondary" onclick="toggleNotes()">
+                                    <i class="fas fa-sticky-note"></i> Toggle Notes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-info mt-4">
+                        <h2 id="current-video-title">Introduction to Cybersecurity</h2>
+                        <div class="video-meta">
+                            <span class="views"><i class="fas fa-eye"></i> 1,234 views</span>
+                            <span class="difficulty"><i class="fas fa-signal"></i> Beginner</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 15:30</span>
+                        </div>
+                        <div class="video-description">
+                            <p>Learn the fundamental concepts of cybersecurity and understand the importance of protecting digital assets.</p>
+                        </div>
+                    </div>
+
+                    <div class="video-notes mt-4" style="display: none;">
+                        <h3>Your Notes</h3>
+                        <div class="notes-container">
+                            <div class="note-item">
+                                <span class="timestamp">2:30</span>
+                                <p>Definition of cybersecurity and its importance</p>
+                            </div>
+                            <div class="note-item">
+                                <span class="timestamp">5:45</span>
+                                <p>Types of cyber threats explained</p>
+                            </div>
+                        </div>
+                        <div class="add-note">
+                            <textarea class="form-control" placeholder="Add a new note..."></textarea>
+                            <button class="btn btn-primary mt-2">Save Note</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-playlist">
+                        <h3>Course Videos</h3>
+                        <div class="playlist-items">
+                            <div class="playlist-item active">
+                                <img src="https://via.placeholder.com/120x68" alt="Video thumbnail">
+                                <div class="video-info">
+                                    <h4>Introduction to Cybersecurity</h4>
+                                    <span class="duration">15:30</span>
+                                </div>
+                            </div>
+                            <div class="playlist-item">
+                                <img src="https://via.placeholder.com/120x68" alt="Video thumbnail">
+                                <div class="video-info">
+                                    <h4>Common Attack Vectors</h4>
+                                    <span class="duration">20:15</span>
+                                </div>
+                            </div>
+                            <div class="playlist-item">
+                                <img src="https://via.placeholder.com/120x68" alt="Video thumbnail">
+                                <div class="video-info">
+                                    <h4>Security Best Practices</h4>
+                                    <span class="duration">18:45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-quiz mt-4">
+                        <h3>Video Quiz</h3>
+                        <div class="quiz-question">
+                            <p>What is the primary goal of cybersecurity?</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="quiz1" id="q1a1">
+                                <label class="form-check-label" for="q1a1">
+                                    To make computers faster
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="quiz1" id="q1a2">
+                                <label class="form-check-label" for="q1a2">
+                                    To protect digital assets and information
+                                </label>
+                            </div>
+                            <button class="btn btn-primary mt-3">Submit Answer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Tracers</h3>
+                    <p>Empowering cybersecurity education</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

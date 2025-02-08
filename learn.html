@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSkids - Cybersecurity Learning Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home-page">
+    <!-- Background Wrapper -->
+    <div class="background-wrapper">
+        <img src="images/pirates-ship-hacking-wallpaper-fore-website.png" alt="Pirate Ship Hacking Scene" class="background-image">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="tracers-logo">TRACERS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ctf.html">CTF</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="learn.html">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tools.html">Tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="FOURM.html">Forum</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light" id="loginBtn">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Learning Content -->
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-cyber-gradient learning-sections">
+                    <div class="card-header bg-cyber-dark text-white">
+                        <h2 class="mb-0">
+                            <i class="fas fa-graduation-cap text-cyber-accent"></i> 
+                            Cybersecurity Learning Hub
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- Article Categories -->
+                        <div class="learning-categories">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card learning-category" data-category="malware">
+                                        <div class="card-body">
+                                            <h4><i class="fas fa-virus text-cyber-accent"></i> Malware Analysis</h4>
+                                            <p class="text-muted">Understanding and Combating Malicious Software</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card learning-category" data-category="web-security">
+                                        <div class="card-body">
+                                            <h4><i class="fas fa-shield-alt text-cyber-accent"></i> Web Security</h4>
+                                            <p class="text-muted">Protecting Web Applications and Infrastructures</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card learning-category" data-category="cyber-crime">
+                                        <div class="card-body">
+                                            <h4><i class="fas fa-user-secret text-cyber-accent"></i> Cyber Crime</h4>
+                                            <p class="text-muted">Investigating Digital Threats and Scams</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Content Sections -->
+                        <div id="learning-content" class="mt-4" style="display:none;">
+                            <!-- Malware Analysis Section -->
+                            <div id="malware" class="learning-content-section">
+                                <div class="card bg-cyber-dark">
+                                    <div class="card-header">
+                                        <h3 class="text-white"><i class="fas fa-virus text-cyber-accent"></i> Malware Analysis Deep Dive</h3>
+                                    </div>
+                                    <div class="card-body article-content">
+                                        <h4 class="text-cyber-accent">Understanding Malware: Types and Techniques</h4>
+                                        <p class="text-white">
+                                            Malware is a sophisticated form of malicious software designed to infiltrate, damage, or gain unauthorized access to computer systems. 
+                                            Understanding its various types and analysis techniques is crucial for cybersecurity professionals.
+                                        </p>
+                                        
+                                        <h5 class="text-cyber-accent mt-3">Types of Malware:</h5>
+                                        <ul class="text-white">
+                                            <li>Viruses: Self-replicating programs that attach to clean files and spread</li>
+                                            <li>Worms: Standalone malware that replicates itself to spread to other computers</li>
+                                            <li>Trojans: Malware disguised as legitimate software</li>
+                                            <li>Ransomware: Encrypts system files and demands payment for decryption</li>
+                                            <li>Spyware: Secretly collects information about a user</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Web Security Section -->
+                            <div id="web-security" class="learning-content-section">
+                                <div class="card bg-cyber-dark">
+                                    <div class="card-header">
+                                        <h3 class="text-white"><i class="fas fa-shield-alt text-cyber-accent"></i> Web Application Security</h3>
+                                    </div>
+                                    <div class="card-body article-content">
+                                        <h4 class="text-cyber-accent">Protecting Web Applications from Cyber Threats</h4>
+                                        <p class="text-white">
+                                            Web security is a critical aspect of cybersecurity, focusing on protecting websites, web applications, 
+                                            and web services from a wide range of digital threats that can compromise data integrity and user privacy.
+                                        </p>
+                                        
+                                        <h5 class="text-cyber-accent mt-3">Common Web Vulnerabilities:</h5>
+                                        <ul class="text-white">
+                                            <li>SQL Injection: Manipulating database queries</li>
+                                            <li>Cross-Site Scripting (XSS): Injecting malicious scripts</li>
+                                            <li>Cross-Site Request Forgery (CSRF): Tricking users into unwanted actions</li>
+                                            <li>Remote Code Execution: Exploiting server-side vulnerabilities</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cyber Crime Section -->
+                            <div id="cyber-crime" class="learning-content-section">
+                                <div class="card bg-cyber-dark">
+                                    <div class="card-header">
+                                        <h3 class="text-white"><i class="fas fa-user-secret text-cyber-accent"></i> Cyber Crime Investigation</h3>
+                                    </div>
+                                    <div class="card-body article-content">
+                                        <h4 class="text-cyber-accent">Cyber Detective: Investigating Digital Threats</h4>
+                                        <p class="text-white">
+                                            Cyber crime has evolved into a sophisticated and global challenge, encompassing a wide range of criminal 
+                                            activities conducted through digital systems. Understanding these threats is crucial for modern investigators.
+                                        </p>
+                                        
+                                        <h5 class="text-cyber-accent mt-3">Types of Cyber Crimes:</h5>
+                                        <ul class="text-white">
+                                            <li>Online Scams and Fraud</li>
+                                            <li>Identity Theft</li>
+                                            <li>Financial Cybercrime</li>
+                                            <li>Digital Espionage</li>
+                                            <li>Ransomware Attacks</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="learn.js"></script>
+</body>
+</html>

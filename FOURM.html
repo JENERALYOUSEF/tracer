@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSkids - Community Forum</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="forum-page">
+    <!-- Background Wrapper -->
+    <div class="background-wrapper">
+        <img src="images/pirates-ship-hacking-wallpaper-fore-website.png" alt="Pirate Ship Hacking Scene" class="background-image">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <!-- ... (keep existing navigation) ... -->
+    </nav>
+
+    <!-- Main Forum Content -->
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card forum-sections">
+                    <div class="card-header bg-cyber-dark text-white">
+                        <h2 class="mb-0">
+                            <i class="fas fa-comments text-cyber-accent"></i> 
+                            CyberSkids Community Forum
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- Forum Categories -->
+                        <div class="forum-categories">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card forum-category" data-category="normal-chat">
+                                        <div class="card-body">
+                                            <h4><i class="fas fa-comment text-cyber-accent"></i> Normal Chat</h4>
+                                            <p class="learning-resources-description">General discussions and community interactions</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card forum-category" data-category="ctf-challenges">
+                                        <div class="card-body">
+                                            <h4><i class="fas fa-flag text-cyber-accent"></i> CTF Challenges</h4>
+                                            <p class="learning-resources-description">General discussions and community interactions</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card forum-category" data-category="courses">
+                                        <div class="card-body">
+                                            <h4><i class="fas fa-graduation-cap text-cyber-accent"></i> Courses</h4>
+                                            <p class="learning-resources-description">Coming Soon</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Content Sections -->
+                        <div id="forum-content" class="mt-4" style="display:none;">
+                            <!-- Normal Chat Section -->
+                            <div id="normal-chat" class="forum-content-section">
+                                <div class="card chat-section">
+                                    <div class="card-header">
+                                        <h3><i class="fas fa-comment text-cyber-accent"></i> Normal Chat</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chat-messages">
+                                            <!-- Sample messages -->
+                                            <div class="message">
+                                                <strong>@CyberNinja:</strong> Hey everyone, how's your cybersecurity journey going?
+                                            </div>
+                                        </div>
+                                        <form class="chat-input mt-3">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Type your message...">
+                                                <button class="btn btn-cyber-gradient" type="submit">Send</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CTF Challenges Section -->
+                            <div id="ctf-challenges" class="forum-content-section">
+                                <div class="card chat-section">
+                                    <div class="card-header">
+                                        <h3><i class="fas fa-flag text-cyber-accent"></i> CTF Challenges</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chat-messages">
+                                            <!-- Sample messages -->
+                                            <div class="message">
+                                                <strong>@HackMaster:</strong> Anyone up for discussing the latest CTF challenge?
+                                            </div>
+                                        </div>
+                                        <form class="chat-input mt-3">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Type your message...">
+                                                <button class="btn btn-cyber-gradient" type="submit">Send</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Courses Section -->
+                            <div id="courses" class="forum-content-section">
+                                <div class="card chat-section">
+                                    <div class="card-header">
+                                        <h3><i class="fas fa-graduation-cap text-cyber-accent"></i> Courses</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="alert alert-info">
+                                            <i class="fas fa-info-circle"></i> Courses section is coming soon! Stay tuned for exciting learning opportunities.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="fourm.js"></script>
+</body>

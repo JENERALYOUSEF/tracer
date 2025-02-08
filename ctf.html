@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Challenges - Tracers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ctf-page">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><span class="tracers-logo">TRACERS</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ctf.html">CTF</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learn.html">Learn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="videos.html">Videos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light" id="loginBtn">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Challenge Categories -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2 class="text-neon mb-4">CTF Challenges</h2>
+            </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <ul class="nav nav-tabs cyber-tabs" id="ctfTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#web" type="button">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#forensics" type="button">
+                    <i class="fas fa-search"></i> Forensics
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#osint" type="button">
+                    <i class="fas fa-eye"></i> OSINT
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#crypto" type="button">
+                    <i class="fas fa-lock"></i> Crypto
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#steganography" type="button">
+                    <i class="fas fa-image"></i> Steganography
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#linux" type="button">
+                    <i class="fas fa-terminal"></i> Linux
+                </button>
+            </li>
+        </ul>
+
+        <!-- Challenge Cards -->
+        <div class="tab-content mt-4" id="ctfTabContent">
+            <!-- Web Challenges -->
+            <div class="tab-pane fade show active" id="web">
+                <!-- Easy Section -->
+                <div class="difficulty-section mb-5">
+                    <h2 class="difficulty-title easy">
+                        <i class="fas fa-seedling"></i> Easy Challenges
+                        <span class="difficulty-desc">Perfect for beginners</span>
+                    </h2>
+                    <div class="row g-4" id="web-easy"></div>
+                </div>
+
+                <!-- Medium Section -->
+                <div class="difficulty-section mb-5">
+                    <h2 class="difficulty-title medium">
+                        <i class="fas fa-shield-alt"></i> Medium Challenges
+                        <span class="difficulty-desc">For intermediate hackers</span>
+                    </h2>
+                    <div class="row g-4" id="web-medium"></div>
+                </div>
+
+                <!-- Hard Section -->
+                <div class="difficulty-section mb-5">
+                    <h2 class="difficulty-title hard">
+                        <i class="fas fa-skull-crossbones"></i> Hard Challenges
+                        <span class="difficulty-desc">Test your elite skills</span>
+                    </h2>
+                    <div class="row g-4" id="web-hard"></div>
+                </div>
+            </div>
+
+            <!-- Other challenge tabs (forensics, osint, etc.) -->
+        </div>
+    </div>
+
+    <!-- Celebration Modal -->
+    <div class="modal fade" id="celebrationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="trophy-container">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="celebration-emojis">
+                        🎉 🏴‍☠️ 🎯 ⚔️ 🎊
+                    </div>
+                    <h2>Congratulations!</h2>
+                    <p>You've successfully captured the flag!</p>
+                    <div class="points-earned">
+                        <span class="points">+<span id="pointsValue">100</span></span>
+                        <span class="points-label">points earned</span>
+                    </div>
+                    <button class="btn btn-next" onclick="nextChallenge()">
+                        Next Challenge <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+    <script src="challenges.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Load challenges when the page is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            loadChallenges();
+        });
+
+        function showHint(challengeId) {
+            const challenge = findChallenge(challengeId);
+            if (challenge && challenge.hints) {
+                alert(challenge.hints.join('\n'));
+            }
+        }
+
+        function checkFlag(challengeId) {
+            const input = document.querySelector(`#flag-${challengeId}`);
+            const challenge = findChallenge(challengeId);
+            
+            if (input && challenge && input.value === challenge.flag) {
+                showCelebration(challenge.points);
+                input.value = '';
+                input.disabled = true;
+                input.parentElement.querySelector('button').disabled = true;
+                
+                // Update user progress
+                updateUserProgress(challengeId, challenge.points);
+            } else {
+                input.classList.add('shake');
+                setTimeout(() => input.classList.remove('shake'), 500);
+            }
+        }
+
+        async function updateUserProgress(challengeId, points) {
+            const user = firebase.auth().currentUser;
+            if (!user) return;
+
+            const userRef = firebase.firestore().collection('users').doc(user.uid);
+            await userRef.update({
+                points: firebase.firestore.FieldValue.increment(points),
+                completedChallenges: firebase.firestore.FieldValue.arrayUnion(challengeId)
+            });
+
+            // Add activity
+            await firebase.firestore().collection('activity').add({
+                userId: user.uid,
+                type: 'challenge',
+                challengeId: challengeId,
+                points: points,
+                message: `Solved challenge "${findChallenge(challengeId).title}" (+${points} points)`,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            });
+
+            // Refresh dashboard
+            initializeDashboard();
+        }
+
+        function showCelebration(points) {
+            const modal = new bootstrap.Modal(document.getElementById('celebrationModal'));
+            document.getElementById('pointsValue').textContent = points;
+            modal.show();
+            
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function nextChallenge() {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('celebrationModal'));
+            modal.hide();
+        }
+    </script>
+</body>
+</html>
+<div class="ctf-button-group">
+    <button class="ctf-cyber-button">
+        <i class="fas fa-play"></i> Start Challenge
+    </button>
+    <button class="ctf-cyber-button-outline">
+        <i class="fas fa-info-circle"></i> Learn More
+    </button>
+    <button class="ctf-cyber-button">
+        <i class="fas fa-trophy"></i> Leaderboard
+    </button>
+</div>
